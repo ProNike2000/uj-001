@@ -16,9 +16,9 @@ export class AuthService {
      }
 
   login(username:string, password:string){
-    let data = {auth: username.concat(':',password)};
+    let data = {auth: btoa(username.concat(':',password))};
     console.log("Invoke http post request",data);
-    return this.http.post<any>(`${environment.apiUrl}/auth`,data).pipe(
+    return this.http.post<any>(environment.apiUrl,data).pipe(
       map(data => {
         let tmp = JSON.parse(data);
         console.log(tmp && tmp['"status"'],tmp , tmp['status'])
@@ -26,10 +26,15 @@ export class AuthService {
           console.log('token', JSON.stringify(tmp['token']));
           localStorage.setItem('authtoken', JSON.stringify(tmp['token']));
           //localStorage.setItem('user', JSON.stringify(data['user']));
-          // this.router.navigate(['']);
+          this.router.navigate(['']);
+
+          if (tmp && tmp['status']=="notok") {
+            alert("Incorrect username or password");
+            localStorage.removeItem("authtoken");
+          }
 
       }
-      
+
       return data;
         console.log(data);
       })
