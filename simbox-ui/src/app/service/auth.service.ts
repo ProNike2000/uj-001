@@ -17,10 +17,6 @@ export class AuthService {
 
   login(username:string, password:string){
     let data = {auth: btoa(username.concat(':',password))};
-    let header = new HttpHeaders();
-    header = header.set('Authorization', username);
-    console.log(header);
-
     console.log("Invoke http post request",data);
     return this.http.post<any>(`${environment.apiUrl}/auth`,data).pipe(
       map(data => {
@@ -32,7 +28,7 @@ export class AuthService {
           //localStorage.setItem('user', JSON.stringify(data['user']));
           this.router.navigate(['']);
 
-          if (tmp && tmp['status']=='notok') {
+          if (tmp && tmp['status']=="notok") {
             alert("Incorrect username or password");
             localStorage.removeItem("authtoken");
           }

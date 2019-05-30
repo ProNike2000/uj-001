@@ -1,4 +1,7 @@
 export interface SimBox{
-    id;
-    name;
+    simbox_id;
+    sip_uri;
+    username;
+    password;
+    ws_server;
 }

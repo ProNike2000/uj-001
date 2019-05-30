@@ -9,13 +9,13 @@ import { SimBox } from '../navigation/SimBox';
 })
 export class SimBoxListService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getSimBoxsList() {
-    return this.http.get(`${environment.apiUrl}/testtable`)
+    return this.http.get(`${environment.apiUrl}/simbox`)
                 .toPromise()
-                .then(res => <SimBox[]> res)
-                .then(data => { 
+                .then(res => res as SimBox[])
+                .then(data => {
                   console.log(data);
                   return data; });
 }

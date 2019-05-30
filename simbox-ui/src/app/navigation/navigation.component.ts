@@ -28,7 +28,7 @@ export class NavigationComponent implements OnInit {
 
   onClick(event, simbox){
     console.log("On click",event,simbox);
-    alert("We click on simbox id: "+simbox.id);
+    alert("We click on simbox id: "+simbox.simbox_id);
   }
 
 }

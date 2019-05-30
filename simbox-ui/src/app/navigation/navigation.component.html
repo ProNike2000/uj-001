@@ -2,14 +2,20 @@
 <p-table [value]="simBoxes" [(contextMenuSelection)]="selectedSimBox" [contextMenu]="cm">
   <ng-template pTemplate="header">
       <tr>
-          <th>ID</th>
-          <th>Name</th>
+          <th>Simbox ID</th>
+          <th>SIP URI</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>WS Server</th>
       </tr>
   </ng-template>
   <ng-template pTemplate="body" let-simBox>
-      <tr [pContextMenuRow]="rowData" (click)="onClick($event,simBox)">
-          <td>{{simBox.id}}</td>
-          <td>{{simBox.name}}</td>
+      <tr (click)="onClick($event,simBox)">
+          <td>{{simBox.simbox_id}}</td>
+          <td>{{simBox.sip_uri}}</td>
+          <td>{{simBox.username}}</td>
+          <td>{{simBox.password}}</td>
+          <td>{{simBox.ws_server}}</td>
       </tr>
   </ng-template>
 </p-table>
