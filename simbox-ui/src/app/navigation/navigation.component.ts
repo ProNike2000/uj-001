@@ -11,6 +11,7 @@ import {MessageService} from 'primeng/components/common/messageservice';
   providers: [MessageService]
 })
 export class NavigationComponent implements OnInit {
+  [x: string]: any;
 
   simBoxes:SimBox[];
   selectedSimBox:SimBox;
@@ -27,8 +28,8 @@ export class NavigationComponent implements OnInit {
   }
 
   onClick(event, simbox){
-    console.log("On click",event,simbox);
     alert("We click on simbox id: "+simbox.simbox_id);
+    this.router.navigate(['/mno_list']);
   }
 
 }

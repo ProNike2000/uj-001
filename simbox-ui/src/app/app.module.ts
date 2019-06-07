@@ -13,12 +13,14 @@ import { NavigationComponent } from './navigation/navigation.component';
 import {TableModule} from 'primeng/table';
 
 import {ContextMenuModule} from 'primeng/contextmenu';
+import { MnoComponent } from './mno/mno.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavigationComponent
+    NavigationComponent,
+    MnoComponent,
   ],
   imports: [
     HttpClientModule,
